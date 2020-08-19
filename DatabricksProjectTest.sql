@@ -6,3 +6,7 @@ SELECT * FROM RANGE(0, ${test.nrows}, 1, ${test.npartitions})  -- start, end, st
 -- COMMAND ----------
 
 select * from books
+
+-- COMMAND ----------
+
+select * from nyc_free_wifi
