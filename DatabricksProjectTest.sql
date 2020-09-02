@@ -9,4 +9,4 @@ select * from books
 
 -- COMMAND ----------
 
-select * from nyc_free_wifi
+select distinct(PROVIDER),BORO from nyc_free_wifi
