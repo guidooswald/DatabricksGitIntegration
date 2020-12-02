@@ -11,3 +11,7 @@ select * from books
 -- COMMAND ----------
 
 select distinct(PROVIDER),BORO from nyc_free_wifi
+
+-- COMMAND ----------
+
+select count(rating) from guido.amazon20k group by rating;
