@@ -24,7 +24,7 @@ print(a)
 # COMMAND ----------
 
 # MAGIC %md There are two other keyboard shortcuts for running code:
-# MAGIC 
+# MAGIC
 # MAGIC * `Alt-Enter` runs the current cell and inserts a new one below.
 # MAGIC * `Ctrl-Enter` run the current cell and enters command mode.
 
@@ -55,9 +55,9 @@ from ctypes import CDLL
 
 # Uncomment these lines if you would like to see the segfault
 
-# dll = 'dylib' if sys.platform == 'darwin' else 'so.6'
-# libc = CDLL("libc.%s" % dll) 
-# libc.time(-1)  # BOOM!!
+dll = 'dylib' if sys.platform == 'darwin' else 'so.6'
+libc = CDLL("libc.%s" % dll) 
+libc.time(-1)  # BOOM!!
 
 # COMMAND ----------
 
@@ -66,7 +66,7 @@ from ctypes import CDLL
 # COMMAND ----------
 
 # MAGIC %md The "Cell" menu has a number of menu items for running code in different ways. These includes:
-# MAGIC 
+# MAGIC
 # MAGIC * Run and Select Below
 # MAGIC * Run and Insert Below
 # MAGIC * Run All
@@ -96,6 +96,7 @@ print("hi, stdout")
 # COMMAND ----------
 
 from __future__ import print_function
+import sys
 print('hi, stderr', file=sys.stderr)
 
 # COMMAND ----------
