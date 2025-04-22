@@ -4,8 +4,53 @@
 
 # COMMAND ----------
 
+# MAGIC %pip install ftplib pandas
+# MAGIC
+# MAGIC from ftplib import FTP
+# MAGIC import pandas as pd
+# MAGIC from io import StringIO
+# MAGIC
+# MAGIC # FTP server details
+# MAGIC ftp_server = 'ftp.example.com'
+# MAGIC ftp_user = 'username'
+# MAGIC ftp_password = 'password'
+# MAGIC file_path = '/path/to/your/file.csv'
+# MAGIC
+# MAGIC # Connect to the FTP server
+# MAGIC ftp = FTP(ftp_server)
+# MAGIC ftp.login(user=ftp_user, passwd=ftp_password)
+# MAGIC
+# MAGIC # Retrieve the CSV file
+# MAGIC csv_data = StringIO()
+# MAGIC ftp.retrbinary(f'RETR {file_path}', csv_data.write)
+# MAGIC csv_data.seek(0)
+# MAGIC
+# MAGIC # Load the CSV data into a pandas DataFrame
+# MAGIC df = pd.read_csv(csv_data)
+# MAGIC
+# MAGIC # Convert pandas DataFrame to Spark DataFrame
+# MAGIC spark_df = spark.createDataFrame(df)
+# MAGIC
+# MAGIC # Write the Spark DataFrame to a Delta Lake table
+# MAGIC spark_df.write.format("delta").mode("overwrite").save("/delta/table/path")
+# MAGIC
+# MAGIC # Display the Delta Lake table
+# MAGIC display(spark.read.format("delta").load("/delta/table/path"))
+
+# COMMAND ----------
+
+1+1
+
+# COMMAND ----------
+
 # MAGIC %sh
 # MAGIC databricks --version
+# MAGIC python --version
+# MAGIC pip --version
+# MAGIC ls -al
+# MAGIC whoami
+# MAGIC pwd
+# MAGIC cat /etc/os-release
 
 # COMMAND ----------
 
@@ -89,7 +134,7 @@ display(spark.sql("show tables").filter("upper(tableName) like '%G%'").limit(10)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC select * from samples.nyctaxi.trips limit 10;
+# MAGIC select * from samples.nyctaxi.trips limit 50;
 
 # COMMAND ----------
 
